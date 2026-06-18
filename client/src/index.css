@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: #FAF3E0;
+  color: #2C1A0E;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.45s ease both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #ede8dc 25%, #f5efe0 50%, #ede8dc 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 12px;
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(44, 26, 14, 0.10);
+}
+
+/* Kategori tab aktif göstergesi */
+.cat-tab {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.cat-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: #FAF3E0;
+  border-radius: 2px;
+}
